@@ -19,4 +19,5 @@ function convertInputToNumberArray(dir) {
 module.exports = {
     convertInputToStringArray,
     convertInputToNumberArray,
+    INPUT_FILENAME,
 };
