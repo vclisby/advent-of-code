@@ -15,9 +15,7 @@ let aim = 0;
 
 for (let i = 0; i < input.length; i++) {
     if (input[i].includes(forwardCommand)) {
-        const forwardValue = parseInt(
-            input[i].substring(forwardCommandLength + 1)
-        );
+        const forwardValue = parseInt(input[i].substring(forwardCommandLength + 1));
 
         horizontal += forwardValue;
         depth += aim * forwardValue;
