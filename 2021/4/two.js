@@ -1,7 +1,5 @@
 const { convertInputToBingo } = require('./input');
 
-const { drawNumbers, grids } = convertInputToBingo(__dirname);
-
 function hasGridWon(rows) {
     const hasCompleteRow = rows.some((row) => row.every((gridNumber) => gridNumber.marked === true));
     const hasCompleteColumn = rows
@@ -10,6 +8,8 @@ function hasGridWon(rows) {
 
     return hasCompleteRow || hasCompleteColumn;
 }
+
+const { drawNumbers, grids } = convertInputToBingo(__dirname);
 
 const wonGridData = [];
 

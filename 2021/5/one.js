@@ -1,7 +1,5 @@
 const { convertInputToLineCoords } = require('./input');
 
-const lines = convertInputToLineCoords(__dirname);
-
 function addLineCoordsToMap(min, max, isHorizontalLine, staticCoord, map) {
     for (let i = min; i < max + 1; i++) {
         const coordAtPoint = isHorizontalLine ? `${i}:${staticCoord}` : `${staticCoord}:${i}`;
@@ -14,6 +12,8 @@ function addLineCoordsToMap(min, max, isHorizontalLine, staticCoord, map) {
         }
     }
 }
+
+const lines = convertInputToLineCoords(__dirname);
 
 const lineCoordMap = new Map();
 
