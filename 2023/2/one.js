@@ -16,7 +16,7 @@ const COLOUR_MAX_MAP = {
     blue: 14,
 };
 
-const value = input.reduce((acc, curr, i) => {
+const value = input.reduce((acc, curr) => {
     const [gameNumber, rounds] = curr.split(':');
     const gameId = gameNumber.substring('Game '.length);
 
