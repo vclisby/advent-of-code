@@ -10,7 +10,13 @@ function getNumberArray(numberString) {
 }
 
 const value = input.reduce((acc, curr) => {
-    const [_, allNumbers] = curr.split(':');
+    const [cardNumber, allNumbers] = curr.split(':');
+    const currentCardNumber = Number(cardNumber.split('Card')[1].trim());
+
+    // Add the original card.
+    acc[currentCardNumber] = (acc[currentCardNumber] ?? 0) + 1;
+
+    const currentCardNumberCount = acc[currentCardNumber];
 
     const [winningNumbers, drawnNumbers] = allNumbers.split('|');
 
@@ -26,13 +32,12 @@ const value = input.reduce((acc, curr) => {
         return acc2;
     }, 0);
 
-    if (winningNumberCount === 1) {
-        return acc + 1;
-    } else if (winningNumberCount > 1) {
-        return acc + 2 ** (winningNumberCount - 1);
+    // Add the copy cards.
+    for (let i = currentCardNumber + 1; i < currentCardNumber + winningNumberCount + 1; i++) {
+        acc[i] = (acc[i] ?? 0) + currentCardNumberCount;
     }
 
     return acc;
-}, 0);
+}, {});
 
-console.log(value);
+console.log(Object.values(value).reduce((acc, curr) => acc + curr, 0));
